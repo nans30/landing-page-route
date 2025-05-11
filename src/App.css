@@ -1,0 +1,340 @@
+body {
+  margin: 0; /* Harus 0 supaya tidak ada jarak */
+  padding: 0;
+  font-family: "Roboto";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+/* navbar section */
+nav {
+  position: sticky; /* atau 'fixed' untuk lebih permanen */
+  top: 0;
+  z-index: 1000;
+  background-color: white; /* agar tidak transparan */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 100px 10px;
+  font-family: "Roboto";
+  font-weight: 400;
+}
+
+.nav-logo a {
+  height: 80px;
+  width: auto;
+  color: #000;
+  font-size: larger;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.nav-link {
+  position: absolute;
+  left: 60%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 65px;
+  color: white;
+}
+
+.nav-link a {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  padding: 10px 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Garis atas dan bawah */
+.nav-link a::before,
+.nav-link a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-link a::before {
+  top: 0; /* garis atas */
+}
+
+.nav-link a::after {
+  bottom: 0; /* garis bawah */
+}
+
+/* Saat hover */
+.nav-link a:hover::before,
+.nav-link a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Aktif (misalnya di HOME / MAIN) */
+.nav-link a.active::before,
+.nav-link a.active::after {
+  transform: scaleX(1);
+}
+/* end navbar section */
+
+/* content home */
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 6rem 0rem;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+}
+
+.left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 12rem;
+  margin-left: 4rem;
+}
+
+.subtitle {
+  font-size: 3rem;
+  color: #999;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #333;
+  margin-top: -5px;
+  margin-bottom: 2rem;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  left: 90px;
+}
+
+.navigation-buttons button {
+  background: white;
+  border: 0.5px solid #ccc;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+.page-indicator {
+  position: absolute;
+  bottom: 8rem;
+  left: 10.5rem;
+  color: #bbb;
+  font-family: "Roboto", sans-serif;
+}
+
+.page-indicator img {
+  width: 80%;
+  height: auto;
+}
+
+.page-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.2rem;
+}
+
+.page-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.current {
+  font-size: 1.5rem;
+}
+
+.page-under {
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+.divider {
+  font-size: 2rem;
+  transform: rotate(15deg);
+  margin-bottom: 6px;
+}
+
+.total {
+  font-size: 1.5rem;
+}
+
+/* untuk view project */
+.view-project-overlay {
+  position: absolute;
+  bottom: 0px;
+  left: -176px;
+  background-color: white;
+  color: #000;
+  padding: 1.2rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* Gambar */
+.right-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.right-image img {
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+
+  margin-right: 412px;
+}
+
+/* end content home */
+
+/* section about */
+.about-section {
+  padding: 60px 40px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.about-images {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+  flex-wrap: wrap;
+  min-width: 300px;
+}
+
+.small-images {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1;
+}
+
+.img-small {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+}
+
+.img-large-container {
+  flex: 2;
+}
+
+.img-large {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+}
+
+.about-text-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.about-paragraph {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.read-more-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #f2f2f2;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.focus-heading {
+  font-size: 2rem;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.focus-items {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.focus-box {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 250px;
+}
+
+.focus-number {
+  font-size: 5rem;
+  color: #eee;
+  margin: 0;
+}
+
+.focus-text {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+
+/* end section about */
+
+/* foooter */
+.footer {
+  width: 100%;
+  background-color: #282c34;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  position: relative;
+  left: 0;
+}
+
+/* footer */
