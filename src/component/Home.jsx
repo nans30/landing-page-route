@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "./layout/Layout";
 import About from "./About";
+import Projects from "./Projects";
+import Contact from "./Contact";
 import "../App.css";
 
 const Home = () => {
@@ -29,6 +31,8 @@ const Home = () => {
 
       <div className="home-container"></div>
       <About />
+      <Projects />
+      <Contact />
     </Layout>
   );
 };
