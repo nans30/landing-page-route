@@ -1,3 +1,13 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
 body {
   margin: 0; /* Harus 0 supaya tidak ada jarak */
   padding: 0;
@@ -23,6 +33,7 @@ nav {
   padding: 20px 100px 10px;
   font-family: "Roboto";
   font-weight: 400;
+  animation: navfade 0.6s ease-in;
 }
 
 .nav-logo a {
@@ -72,6 +83,18 @@ nav {
 
 .nav-link a::after {
   bottom: 0; /* garis bawah */
+}
+
+.nav-link a::before,
+.nav-link a::after {
+  transform-origin: right;
+}
+.nav-link a:hover::before,
+.nav-link a:hover::after,
+.nav-link a.active::before,
+.nav-link a.active::after {
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Saat hover */
@@ -133,7 +156,15 @@ nav {
   border: 0.5px solid #ccc;
   padding: 0.6rem 1rem;
   cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
 }
+
+.navigation-buttons button:hover {
+  background: #1f1f1f; /* lebih gelap */
+  color: #fff;
+  transform: translateY(3px);
+}
+
 .page-indicator {
   position: absolute;
   bottom: 8rem;
@@ -191,6 +222,14 @@ nav {
   font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.view-project-overlay:hover,
+.projects-button:hover {
+  background: #1f1f1f; /* lebih gelap */
+  color: #fff;
+  transform: translateX(-3px);
 }
 
 /* Gambar */
@@ -229,12 +268,9 @@ nav {
   flex-direction: column;
 }
 
-
-
-
 .about-section {
   padding: 60px 40px;
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   display: flex;
   justify-content: center;
 }
@@ -267,7 +303,7 @@ nav {
   width: 100%;
   height: auto;
   object-fit: cover;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .img-large-container {
@@ -278,7 +314,7 @@ nav {
   width: 80%;
   height: auto;
   object-fit: cover;
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .about-text-content {
@@ -344,11 +380,7 @@ nav {
   line-height: 1.6;
 }
 
-
-
-
 /* end section about */
-
 
 /* section projects */
 .projects-section {
@@ -370,7 +402,7 @@ nav {
   margin-left: 20px;
 }
 
-.overlay p{
+.overlay p {
   font-weight: 300;
   margin-left: 20px;
 }
@@ -443,7 +475,7 @@ nav {
 .projects-button {
   padding: 25px 28px;
   background-color: #333;
-  border-radius: 4px;
+  border-radius: 2px;
   color: white;
   border: none;
   cursor: pointer;
@@ -451,83 +483,290 @@ nav {
   letter-spacing: 1px;
 }
 
-
 /* end section projects */
-
-
 
 /* section contact */
 
-
+/* CONTACT SECTION */
+/* ---------- CONTACT SECTION ---------- */
 .contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
   display: flex;
-  justify-content: space-between;
-  padding: 50px;
-  background-color: #fff;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.contact-heading {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #bdbdbd;
+  margin-bottom: 30px;
 }
 
 .contact-form {
-  width: 50%;
-  padding: 20px;
+  flex: 1;
+  min-width: 320px;
 }
 
-.contact-form h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.contact-form label {
-  font-size: 16px;
-  margin: 10px 0 5px;
-  display: block;
-}
-
+/* INPUT & TEXTAREA STYLE */
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  background: #f4f4f4;
+  border: none;
+  padding: 16px 18px;
+  font-size: 0.95rem;
+  color: #333;
+  border-radius: 0;
+  outline: none;
+}
+.contact-form textarea {
+  resize: vertical;
+}
+
+/* placeholder colour */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #7a7a7a;
+}
+
+/* BUTTON */
+.btn-wrap {
+  margin-top: 50px;
 }
 
 .contact-form button {
-  padding: 15px;
-  background-color: #333;
+  background: #333;
   color: #fff;
   border: none;
+  padding: 18px 60px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
   cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
+  transition: background 0.25s;
 }
-
 .contact-form button:hover {
-  background-color: #555;
+  background: #555;
 }
 
 .image-container {
-  width: 40%;
+  flex: 1.7;
+  min-width: 400px;
+  align-self: flex-start; /* agar gambar mulai dari atas kontainer lalu bisa turun */
+  padding-top: 130px; /* atur jarak dari atas */
 }
 
 .image-container img {
-  width: 100%;
+  width: 105%;
   height: auto;
-  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .btn-wrap {
+    text-align: center;
+  }
+  .image-container {
+    order: -1;
+    margin-bottom: 40px;
+  }
 }
 
 /* end sction contact */
 
+/* section gallery */
+.gallery-container {
+  padding: 2rem;
+}
+
+.gallery-header {
+  margin-bottom: 2rem;
+}
+
+.gallery-title {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.gallery-title .light {
+  display: block;
+  color: #999;
+  font-weight: 300;
+}
+
+.gallery-title .bold {
+  font-weight: 800;
+  color: #000;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.photo-box {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  background-color: #ccc;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.page-numbers .current {
+  color: #000;
+  font-weight: 600;
+}
+
+.calendar-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #555;
+}
+
+.calendar-indicator img {
+  width: 16px;
+  height: 16px;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navigation-buttons button {
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.navigation-buttons button:hover {
+  background: #f0f0f0;
+}
+
+/* end section gallery */
+
 /* foooter */
 .footer {
-  width: 100%;
-  background-color: #282c34;
+  background-color: #1f1f1f;
   color: #fff;
+  padding: 2rem 1rem;
+  font-family: "Roboto";
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 1rem;
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.footer-section ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  margin: 1.5rem 0;
+}
+
+.footer-section p {
+  margin: 2rem 0;
+}
+
+.social-icons span {
+  margin-right: 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.social-icons {
+  display: flex;
+  gap: 24px;
+  font-size: 1.2rem;
+}
+
+.social-icons svg {
+  cursor: pointer;
+  transition: color 0.2s;
+  transition: transform 0.3s;
+}
+
+.social-icons svg:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+.social-icons svg:hover {
+  color: #bbb;
+}
+
+.logo h2 {
+  font-family: "Roboto";
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 4rem;
+}
+
+.footer-bottom {
   text-align: center;
-  padding: 1rem 0;
+  font-weight: 50;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
   margin-top: 2rem;
-  position: relative;
-  left: 0;
+  font-size: 0.9rem;
 }
 
 /* footer */
+
+/* resfonsive */

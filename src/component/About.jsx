@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import "../App.css";
 
 const About = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(
+          (e) => e.isIntersecting && e.target.classList.add("show")
+        );
+      },
+      { threshold: 0.2 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  }, []);
+
   return (
     <>
       {/* Section About */}
