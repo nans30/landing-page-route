@@ -32,7 +32,7 @@ const Navbar = () => {
           to="/certifications"
           className={({ isActive }) => (isActive ? "active" : "")}
         >
-          CERTIFICATIONS
+          MEMBER
         </NavLink>
         <NavLink
           to="/contact"
