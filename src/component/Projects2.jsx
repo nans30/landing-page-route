@@ -3,22 +3,25 @@ import Layout from "./layout/Layout";
 import "../App.css";
 const projectData = [
   {
-    title: "Sample Project",
+    title: "Modern Skyscraper",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    image: "/image 30.png",
+      "A breathtaking view of a modern glass skyscraper reflecting the sunset in the city skyline.",
+    image:
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80",
   },
   {
-    title: "Sample Project 2",
+    title: "Architectural Design",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    image: "/image 32.png",
+      "A beautifully designed office building showcasing a perfect balance of glass and steel.",
+    image:
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80",
   },
   {
-    title: "Sample Project 3",
+    title: "Urban Towers",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    image: "/image 33.png",
+      "Towering buildings set against a deep blue sky, a hallmark of urban development.",
+    image:
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
